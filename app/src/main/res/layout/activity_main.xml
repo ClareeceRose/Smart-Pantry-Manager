@@ -1,48 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    1) I don't think everything spaced manually is good since it looks odd on other devices,
-    but it's fine for now. All the main components are in.
-
-    2) I got a warning here. It went away from I took out "Button" from its @string content description.
+    1) I got a warning here. It went away from I took out "Button" from its @string content description.
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F2E4"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:background="#F0B0C6"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="5dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:contentDescription="@string/smart_pantry_logo"
-            android:foregroundTint="#FEDE3692"
-            tools:srcCompat="@drawable/smart_pantry_logo" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:foregroundGravity="center_vertical"
-            android:text="@string/my_pantry"
-            android:textAlignment="textStart"
-            android:textSize="34sp" />
-    </LinearLayout>
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout"/>
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="586dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -55,58 +30,11 @@
             android:clickable="true"
             android:contentDescription="@string/addition_button"
             android:focusable="true"
+            android:scaleType="center"
             app:srcCompat="@drawable/addition" />
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="79dp"
-        android:background="#EFA5BE"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="134dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="15dp">
-
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/recipes"
-                tools:srcCompat="@drawable/recipe" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="139dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="15dp">
-
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/pantry"
-                tools:srcCompat="@drawable/pantry" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="15dp">
-
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/settings"
-                tools:srcCompat="@drawable/settings" />
-        </LinearLayout>
-    </LinearLayout>
+    <include
+        android:id="@+id/nav_bar"
+        layout="@layout/nav_bar"/>
 </LinearLayout>
