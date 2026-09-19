@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SmartPantryManager</string>
+    <string name="smart_pantry_logo">Smart Pantry Logo</string>
+    <string name="addition_button">Add Recipe</string>
+    <string name="my_pantry">My Pantry</string>
+    <string name="recipes">Recipes</string>
+    <string name="pantry">Pantry</string>
+    <string name="settings">Settings</string>
 </resources>
