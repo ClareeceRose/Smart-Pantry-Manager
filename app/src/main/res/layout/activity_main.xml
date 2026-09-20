@@ -4,11 +4,11 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F2E4"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/main" >
 
     <include
         android:id="@+id/header"
@@ -31,7 +31,7 @@
             android:contentDescription="@string/addition_button"
             android:focusable="true"
             android:scaleType="center"
-            app:srcCompat="@drawable/addition" />
+            android:src="@drawable/addition" />
     </FrameLayout>
 
     <include
