@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="title_text">#BC2567</color>
+    <color name="title_bar_background">#F0B0C6</color>
+
+    <color name="body_text">#AD3C74</color>
+    <color name="body_background">#691940</color>
+
+    <color name="nav_bar_background">#EFA5BE</color>
+
+    <color name="error_message_text"> </color>
+
+    <color name="cancel_btn_background"> </color>
+    <color name="cancel_btn_border"> </color>
+    <color name="cancel_btn_text"> </color>
+
+    <color name="confirm_btn_background"> </color>
+    <color name="confirm_btn_border"> </color>
+    <color name="confirm_btn_text"> </color>
+
+    <color name="main_card_background"> </color>
+
+    <color name="recipe_card_background"> </color>
+    <color name="ingredient_card_background"> </color>
+
+    <color name="add_ingredient_btn_background"> </color>
+    <color name="add_ingredient_btn_foreground"> </color>
+
+    <color name="edit_ingredient_btn_background"> </color>
+    <color name="edit_ingredient_btn_foreground"> </color>
+
+    <color name="delete_ingredient_btn_background"> </color>
+    <color name="delete_ingredient_btn_foreground"> </color>
+
+    <color name="empty_content_msg_text"> </color>
+
+    <color name="spinner_icon"> </color>
+    <color name="spinner_background"> </color>
+
+    <color name="recipe_detail_heading"> </color>
+    <color name="recipe_detail_subheading"> </color>
+
+    <color name="divider_background">#AD3C74</color>
+
+    <color name="selected_tab_background"> </color>
+
 </resources>

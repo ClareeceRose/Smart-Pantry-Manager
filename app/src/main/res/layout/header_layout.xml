@@ -4,7 +4,7 @@
     android:id="@+id/header"
     android:layout_width="match_parent"
     android:layout_height="68dp"
-    android:background="#F0B0C6"
+    android:background="@color/title_bar_background"
     android:orientation="horizontal">
 
     <ImageView
@@ -18,7 +18,7 @@
         android:src="@drawable/smart_pantry_logo" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/header_title"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -27,7 +27,7 @@
         android:paddingEnd="20dp"
         android:text="@string/my_pantry"
         android:textAlignment="textEnd"
-        android:textColor="#BC2567"
+        android:textColor="@color/title_text"
         android:textIsSelectable="false"
         android:textSize="34sp"
         android:textStyle="bold" />

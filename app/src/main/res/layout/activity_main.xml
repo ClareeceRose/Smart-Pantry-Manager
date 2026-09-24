@@ -4,6 +4,7 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F2E4"
@@ -15,23 +16,28 @@
         layout="@layout/header_layout"/>
 
     <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_width="match_parent">
+        android:padding="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/add_ingredient_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
             android:clickable="true"
             android:contentDescription="@string/addition_button"
             android:focusable="true"
             android:scaleType="center"
-            android:src="@drawable/addition" />
+            android:src="@android:drawable/ic_input_add"
+            android:translationX="-20dp"
+            android:translationY="-20dp"
+            app:rippleColor="#A06262" />
     </FrameLayout>
 
     <include
