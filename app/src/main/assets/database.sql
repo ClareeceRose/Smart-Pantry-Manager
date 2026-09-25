@@ -22,8 +22,11 @@ CREATE TABLE IF NOT EXISTS Recipe_Ingredient(
     Ingredient_Id INTEGER REFERENCES Ingredient(Ingredient_Id) NOT NULL,
     RI_Required_Qty INTEGER NOT NULL,
     RI_Unit TEXT NOT NULL);
-    
+
+
 -- Now we shall seed data into some of the tables
+-- data will not be seeded in the Pantry_Ingredient table since the user must add them on the app
+
 -- seeding ingredients (based on my own pantry)
 INSERT INTO Ingredient(Ingredient_Name) 
 VALUES
@@ -104,7 +107,7 @@ VALUES
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Omelette'), 
-    (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'pepper'), 
+    (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'black pepper'), 
     1, 
     'pinch'
 ),
