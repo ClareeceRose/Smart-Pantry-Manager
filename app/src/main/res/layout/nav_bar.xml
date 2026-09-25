@@ -21,9 +21,13 @@
     android:background="@color/nav_bar_background">
 
     <LinearLayout
+        android:id="@+id/recipe_tab"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/recipe_tab"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -40,15 +44,18 @@
         android:id="@+id/divider"
         android:layout_width="1dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:background="@color/divider_background"
         android:maxWidth="1dp"
         android:minWidth="1dp" />
 
     <LinearLayout
+        android:id="@+id/pantry_tab"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/pantry_tab"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -65,15 +72,18 @@
         android:id="@+id/divider2"
         android:layout_width="1dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:background="@color/divider_background"
         android:maxWidth="1dp"
         android:minWidth="1dp" />
 
     <LinearLayout
+        android:id="@+id/settings_tab"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/settings_tab"
         android:orientation="vertical"
         android:padding="15dp">
 
