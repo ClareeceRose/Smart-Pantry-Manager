@@ -84,14 +84,14 @@ VALUES
 
 -- seeding recipe ingredients
 -- I decided to stick to a standard metric system for the unit measurements
--- units: counts, g, kg, l, ml, cloves, tsp, tbsp, pinch (note to self, create a separate table for units)
+-- units: g, kg, l, ml, piece, tsp, tbsp (note to self, create a separate table for units)
 INSERT INTO Recipe_Ingredient(Recipe_Id, Ingredient_Id, RI_Required_Qty, RI_Unit)
 VALUES
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Omelette'), 
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'egg'), 
     2, 
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Omelette'), 
@@ -103,13 +103,13 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Omelette'), 
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'salt'), 
     1, 
-    'pinch'
+    'g'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Omelette'), 
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'black pepper'), 
     1, 
-    'pinch'
+    'g'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Strawberry Pancakes'),
@@ -127,7 +127,7 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Strawberry Pancakes'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'egg'),
     1,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Strawberry Pancakes'),
@@ -157,7 +157,7 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Blueberry Pancakes'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'egg'),
     1,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Blueberry Pancakes'),
@@ -211,7 +211,7 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Ramen'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'egg'),
     1,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Lasagna'),
@@ -235,19 +235,19 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Lasagna'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'tomato'),
     2,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Vegetable Stir Fry'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'bell pepper'),
     1,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Vegetable Stir Fry'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'carrot'),
     1,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Vegetable Stir Fry'),
@@ -277,13 +277,13 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Chicken Stir Fry'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'bell pepper'),
     1,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Chicken Stir Fry'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'carrot'),
     1,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Chicken Stir Fry'),
@@ -301,7 +301,7 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Buttered Toast'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'bread'),
     2,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Buttered Toast'),
@@ -313,25 +313,25 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Egg Toast'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'egg'),
     1,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Egg Toast'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'bread'),
     2,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Egg Toast'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'salt'),
     1,
-    'pinch'
+    'g'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Egg Toast'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'black pepper'),
     1,
-    'pinch'
+    'g'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Egg Toast'),
@@ -361,7 +361,7 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Cake'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'egg'),
     2,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Cake'),
@@ -391,7 +391,7 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Pizza'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'tomato'),
     2,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Pizza'),
@@ -403,7 +403,7 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Pizza'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'bell pepper'),
     1,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Spaghetti Bolognese'),
@@ -415,13 +415,13 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Spaghetti Bolognese'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'tomato'),
     2,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Spaghetti Bolognese'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'garlic'),
     2,
-    'cloves'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Spaghetti Bolognese'),
@@ -433,7 +433,7 @@ VALUES
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Grilled Cheese'),
     (SELECT Ingredient_Id FROM Ingredient WHERE Ingredient_Name = 'bread'),
     2,
-    'counts'
+    'piece'
 ),
 (
     (SELECT Recipe_Id FROM Recipe WHERE Recipe_Name = 'Grilled Cheese'),
