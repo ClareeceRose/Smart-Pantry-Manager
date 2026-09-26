@@ -9,4 +9,8 @@
     <string name="recipe_tab">Recipe Tab</string>
     <string name="pantry_tab">Pantry Tab</string>
     <string name="settings_tab">Settings Tab</string>
+    <string name="measurement_system_label">Measurement System:</string>
+    <string name="measurement_system_guidance">Choose How You Want Ingredient Units To Be Displayed</string>
+    <string name="about_spm">About Smart Pantry Manager</string>
+    <string name="version">Version 1.0</string>
 </resources>

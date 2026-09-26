@@ -36,12 +36,15 @@
     <color name="empty_content_msg_text"> </color>
 
     <color name="spinner_icon"> </color>
-    <color name="spinner_background"> </color>
+    <color name="spinner_background">#FCF0F4</color>
+    <color name="spinner_border">#703736</color>
 
     <color name="recipe_detail_heading"> </color>
     <color name="recipe_detail_subheading"> </color>
 
     <color name="divider_background">#AD3C74</color>
+
+    <color name="settings_hint">#543a46</color>
 
     <color name="selected_tab_background"> </color>
 
