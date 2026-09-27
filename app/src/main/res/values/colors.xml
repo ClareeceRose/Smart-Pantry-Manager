@@ -9,13 +9,13 @@
 
     <color name="nav_bar_background">#EFA5BE</color>
 
-    <color name="error_message_text"> </color>
+    <color name="error_message_text">#F7161A</color>
 
-    <color name="cancel_btn_background"> </color>
+    <color name="cancel_btn_background">#FDB0B0</color>
     <color name="cancel_btn_border"> </color>
     <color name="cancel_btn_text"> </color>
 
-    <color name="confirm_btn_background"> </color>
+    <color name="confirm_btn_background">#C5EEC9</color>
     <color name="confirm_btn_border"> </color>
     <color name="confirm_btn_text"> </color>
 

@@ -6,6 +6,8 @@
     <string name="recipes">Recipes</string>
     <string name="pantry">Pantry</string>
     <string name="settings">Settings</string>
+    <string name="add_ingredient_title">Add Ingredient</string>
+    <string name="edit_ingredient_title">Edit Ingredient</string>
     <string name="recipe_tab">Recipe Tab</string>
     <string name="pantry_tab">Pantry Tab</string>
     <string name="settings_tab">Settings Tab</string>
@@ -13,4 +15,35 @@
     <string name="measurement_system_guidance">Choose How You Want Ingredient Units To Be Displayed</string>
     <string name="about_spm">About Smart Pantry Manager</string>
     <string name="version">Version 1.0</string>
+    <string name="confirm_btn_text">Confirm</string>
+    <string name="cancel_btn_text">Cancel</string>
+    <string name="ingredient_name_label">Ingredient Name:</string>
+    <string name="ingredient_qty_label">Qty:</string>
+    <string name="ingredient_unit_label">Unit:</string>
+    <string name="sample_ingredient">Tomato</string>
+    <string name="sample_qty">0</string>
+
+    <string-array name="measurement_options">
+        <item>Metric</item>
+        <item>Imperial</item>
+    </string-array>
+
+    <string-array name="metric_unit_options">
+        <item>g</item>
+        <item>kg</item>
+        <item>tsp</item>
+        <item>tbsp</item>
+        <item>l</item>
+        <item>ml</item>
+        <item>piece</item>
+    </string-array>
+
+    <string-array name="imperial_unit_options">
+        <item>ounce</item>
+        <item>pound</item>
+        <item>tsp</item>
+        <item>tbsp</item>
+        <item>fluid ounce</item>
+        <item>piece</item>
+    </string-array>
 </resources>

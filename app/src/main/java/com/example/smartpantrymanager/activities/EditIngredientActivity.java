@@ -1,6 +1,7 @@
 package com.example.smartpantrymanager.activities;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +23,8 @@ public class EditIngredientActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        TextView headerTitle = findViewById(R.id.header_title);
+        headerTitle.setText(R.string.edit_ingredient_title);
     }
 }

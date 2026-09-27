@@ -6,7 +6,6 @@ public enum UnitType {
     MILLILITER,
     LITER,
     PIECE,
-
     OUNCE,
     POUND,
     TABLESPOON,
