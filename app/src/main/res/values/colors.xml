@@ -21,7 +21,7 @@
 
     <color name="main_card_background"> </color>
 
-    <color name="recipe_card_background"> </color>
+    <color name="recipe_card_background">#FEC8D3</color>
     <color name="ingredient_card_background"> </color>
 
     <color name="add_ingredient_btn_background"> </color>

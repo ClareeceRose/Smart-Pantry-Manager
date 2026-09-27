@@ -20,6 +20,8 @@ import com.example.smartpantrymanager.core.enums.MeasurementSystemType;
 
 public class SettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    private MeasurementSystemType measurementSystemType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,11 +76,9 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
     // when an item is selected
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
-        // this is for retrieving the selected item ans storing it
-        String selectedMeasurement = parent.getItemAtPosition(pos).toString();
 
-        // for our enums
-        MeasurementSystemType measurementSystemType;
+        // this is for retrieving the selected item and storing it
+        String selectedMeasurement = parent.getItemAtPosition(pos).toString();
 
         // this is what actually sets the measurement system used
         if (selectedMeasurement.equals("Metric")){
@@ -87,6 +87,8 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
         else {
             measurementSystemType = MeasurementSystemType.IMPERIAL;
         }
+
+        getSharedPreferences("MeasurementSystemSettings", MODE_PRIVATE).edit().putString("measurement_system", measurementSystemType.name()).apply();
     }
 
     // and when an item is not selected

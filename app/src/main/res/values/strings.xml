@@ -21,7 +21,14 @@
     <string name="ingredient_qty_label">Qty:</string>
     <string name="ingredient_unit_label">Unit:</string>
     <string name="sample_ingredient">Tomato</string>
+    <string name="edit_ingredient"> </string>
+    <string name="edit_qty"> </string>
     <string name="sample_qty">0</string>
+    <string name="ingredients_heading">Ingredients:</string>
+    <string name="recipe_heading">Recipe:</string>
+    <string name="recipe_instructions_heading">Instructions:</string>
+    <string name="recipe_ingredient_count_label">6 Ingredients</string>
+    <string name="recipe_name">Lasagna</string>
 
     <string-array name="measurement_options">
         <item>Metric</item>
