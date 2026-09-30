@@ -49,6 +49,25 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
         measurementsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // this will apply the adapter to the spinner
         measurementsSpinner.setAdapter(measurementsAdapter);
+
+        // now lets get the saved measurement coz there was a bug where measurement metric kept resetting
+        // when I went to the settings screen everytime
+        String savedMeasurement = getSharedPreferences(
+                "MeasurementSystemSettings",
+                MODE_PRIVATE
+        ).getString("measure_system", MeasurementSystemType.METRIC.name());
+
+        // converting the saved value back into the enum
+        MeasurementSystemType savedMeasurementType = MeasurementSystemType.valueOf(savedMeasurement);
+
+        // and now we set the spinner to the saved option
+        if (savedMeasurementType == MeasurementSystemType.METRIC){
+            measurementsSpinner.setSelection(0);
+        }
+        else {
+            measurementsSpinner.setSelection(1);
+        }
+
         // listens for selected items using this activity
         measurementsSpinner.setOnItemSelectedListener(this);
 

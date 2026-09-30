@@ -29,6 +29,10 @@
     <string name="recipe_instructions_heading">Instructions:</string>
     <string name="recipe_ingredient_count_label">6 Ingredients</string>
     <string name="recipe_name">Lasagna</string>
+    <string name="pantry_ingredient_name">Tomato</string>
+    <string name="pantry_ingredient_qty">200 g</string>
+    <string name="edit_pantry_ingredient">Edit Pantry Ingredient</string>
+    <string name="delete_pantry_ingredient">Delete Pantry Ingredient</string>
 
     <string-array name="measurement_options">
         <item>Metric</item>

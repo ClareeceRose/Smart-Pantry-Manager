@@ -22,16 +22,14 @@
     <color name="main_card_background"> </color>
 
     <color name="recipe_card_background">#FEC8D3</color>
-    <color name="ingredient_card_background"> </color>
+    <color name="ingredient_card_background">#E7CFE9</color>
 
     <color name="add_ingredient_btn_background"> </color>
     <color name="add_ingredient_btn_foreground"> </color>
 
-    <color name="edit_ingredient_btn_background"> </color>
-    <color name="edit_ingredient_btn_foreground"> </color>
+    <color name="edit_ingredient_btn_background">#9E175C</color>
 
-    <color name="delete_ingredient_btn_background"> </color>
-    <color name="delete_ingredient_btn_foreground"> </color>
+    <color name="delete_ingredient_btn_background">#C01C27</color>
 
     <color name="empty_content_msg_text"> </color>
 

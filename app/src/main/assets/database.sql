@@ -70,7 +70,7 @@ VALUES
 ('Blueberry Pancakes', 'Mix flour, milk, and egg into a batter, folding in the blueberries. Multiple can be cooked in a buttered pan until golden brown'),
 ('Chocolate Chip', 'Mix flour, sugar, butter, and chocolate chips into a dough, scoop the dough onto a tray, then bake until its edges are golden'),
 ('Ramen', 'Boil the ramen noodles in water with soy sauce until it becomes soft, then add a soft-boiled egg on top of it'),
-('Lasagna', 'Boild the spaghetti sheets in salted water, then layer them along with mince, cheddar cheese, and tomato, then bake until cheese is melted and bubbly'),
+('Lasagna', 'Boiled the spaghetti sheets in salted water, then layer them along with mince, cheddar cheese, and tomato, then bake until cheese is melted and bubbly'),
 ('Vegetable Stir Fry', 'Stir fry the bell pepper, carrot, and spinach in oil with soy sauce until its tender.'),
 ('Chicken Stir Fry', 'Stir fry the chicken with bell pepper and carrot in oil and soy sauce until the chicken is cooked through'),
 ('Buttered Toast', 'Toast the bread, then butter on it while its still warm'),
