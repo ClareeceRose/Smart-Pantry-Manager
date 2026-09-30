@@ -126,10 +126,10 @@ public class AddIngredientActivity extends AppCompatActivity implements AdapterV
         else if(selectedUnit.equals("tbsp")){
             unitType = UnitType.TABLESPOON;
         }
-        else if(selectedUnit.equals("ounce")){
+        else if(selectedUnit.equals("oz")){
             unitType = UnitType.OUNCE;
         }
-        else if(selectedUnit.equals("fluid ounce")){
+        else if(selectedUnit.equals("fluid oz")){
             unitType = UnitType.FLUID_OUNCE;
         }
     }

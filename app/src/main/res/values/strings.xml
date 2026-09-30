@@ -50,11 +50,11 @@
     </string-array>
 
     <string-array name="imperial_unit_options">
-        <item>ounce</item>
+        <item>oz</item>
         <item>pound</item>
         <item>tsp</item>
         <item>tbsp</item>
-        <item>fluid ounce</item>
+        <item>fluid oz</item>
         <item>piece</item>
     </string-array>
 </resources>
