@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/pi_recycler_view"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/pi_recycler_view_row"
         android:layout_width="388dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
         android:background="@color/ingredient_card_background"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp">
@@ -36,7 +36,7 @@
                 android:textStyle="bold" />
 
             <View
-                android:id="@+id/divider4"
+                android:id="@+id/pantry_ingredient_detail_divider"
                 android:layout_width="1dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center|center_horizontal"
@@ -55,18 +55,18 @@
                 android:textSize="16sp" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/edit_ingredient_btn"
                 android:layout_width="5dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@color/edit_ingredient_btn_background"
                 android:contentDescription="@string/edit_pantry_ingredient"
                 app:srcCompat="@drawable/edit" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/delete_ingredient_btn"
                 android:layout_width="5dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"

@@ -11,8 +11,19 @@ public class IngredientService {
         this.ingredientRepo = ingredientRepo;
     }
 
-    public Ingredient findIngredient(String name){
+    public Ingredient findIngredientByName(String name){
         ingredient = ingredientRepo.findIngredientByName(name);
+
+        // this is if the ingredient could not be found.
+        if (ingredient == null){
+            return null;
+        }
+
+        return ingredient; // a found ingredient
+    }
+
+    public Ingredient findIngredientById(int id){
+        ingredient = ingredientRepo.findIngredientById(id);
 
         // this is if the ingredient could not be found.
         if (ingredient == null){

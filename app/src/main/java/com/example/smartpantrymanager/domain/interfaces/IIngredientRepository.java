@@ -6,5 +6,6 @@ import java.util.HashSet;
 
 public interface IIngredientRepository {
     Ingredient findIngredientByName(String name);
+    Ingredient findIngredientById(int id);
     void addIngredient(Ingredient ingredient);
 }

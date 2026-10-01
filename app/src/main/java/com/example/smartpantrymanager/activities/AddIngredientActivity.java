@@ -8,14 +8,28 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.*;
-
 import com.example.smartpantrymanager.R;
 import com.example.smartpantrymanager.core.enums.*;
+import com.example.smartpantrymanager.data.connection.DBHelper;
+import com.example.smartpantrymanager.data.repositories.IngredientRepository;
+import com.example.smartpantrymanager.data.repositories.PantryIngredientRepository;
+import com.example.smartpantrymanager.domain.models.PantryIngredient;
+import com.example.smartpantrymanager.domain.services.IngredientService;
+import com.example.smartpantrymanager.domain.services.PantryIngredientService;
+import com.example.smartpantrymanager.utils.InputValidator;
+
+import java.util.ArrayList;
 
 public class AddIngredientActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner unitSpinner;
     private UnitType unitType;
+    private ArrayList<PantryIngredient> pantryIngredients;
+    private PantryIngredientService pantryIngredientService;
+    private PantryIngredientRepository pantryIngredientRepo;
+    private IngredientService ingredientService;
+    private IngredientRepository ingredientRepo;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +39,14 @@ public class AddIngredientActivity extends AppCompatActivity implements AdapterV
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.add_ingredient_form), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+
+            dbHelper = new DBHelper(this);
+            pantryIngredientRepo = new PantryIngredientRepository(dbHelper);
+            pantryIngredientService = new PantryIngredientService(pantryIngredientRepo);
+            ingredientRepo = new IngredientRepository(dbHelper);
+            ingredientService = new IngredientService(ingredientRepo);
+            pantryIngredients = pantryIngredientService.getAllPantryIngredients();
+
             return insets;
         });
 
@@ -139,4 +161,48 @@ public class AddIngredientActivity extends AppCompatActivity implements AdapterV
     public void onNothingSelected(AdapterView<?> parent){
 
     }
+
+    // let's perform form validation now
+
+    public void validateAddIngredientForm(){
+        // we need to get the data entered.
+        EditText addIngredientNameInput = findViewById(R.id.add_ingredient_name);
+        EditText addIngredientQtyInput = findViewById(R.id.add_ingredient_qty);
+        TextView addIngredientErrorMsg = findViewById(R.id.add_ingredient_error_msg);
+
+        String ingredientName = addIngredientNameInput.getText().toString().trim().toLowerCase();
+        String ingredientQty = addIngredientQtyInput.getText().toString().trim();
+
+        if (InputValidator.isNullOrBlank(ingredientName)){
+            addIngredientErrorMsg.setText(R.string.empty_ingredient_error_msg);
+            addIngredientErrorMsg.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        if (InputValidator.isNullOrBlank(ingredientQty)){
+            addIngredientErrorMsg.setText(R.string.empty_qty_error_msg);
+            addIngredientErrorMsg.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        if (!InputValidator.isPositiveDecimal(ingredientQty)){
+            addIngredientErrorMsg.setText(R.string.invalid_qty_error_msg);
+            addIngredientErrorMsg.setVisibility(View.VISIBLE);
+            return;
+        }
+
+    }
+
+    // this will trigger once the user clicks the confirm button to add an ingredient
+    public void addIngredient(){
+        // the process
+
+        // validate inputs first
+        validateAddIngredientForm();
+
+        // now we check if this pantry ingredient already exists to prevent duplicates
+
+    }
+
+
 }

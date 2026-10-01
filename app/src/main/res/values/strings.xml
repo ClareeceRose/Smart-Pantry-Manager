@@ -35,6 +35,10 @@
     <string name="delete_pantry_ingredient">Delete Pantry Ingredient</string>
     <string name="back_button">back</string>
 
+    <string name="empty_ingredient_error_msg">Empty Name Field - Please Enter Ingredient Name</string>
+    <string name="empty_qty_error_msg">Empty Qty Field - Please Enter Valid Quantity</string>
+    <string name="invalid_qty_error_msg">Invalid Qty - Must Be A Positive Number</string>
+
     <string name="ingredient_list">* Pasta - 250 g</string>
     <string name="recipe_instruction">Boil the pasta for ...</string>
 

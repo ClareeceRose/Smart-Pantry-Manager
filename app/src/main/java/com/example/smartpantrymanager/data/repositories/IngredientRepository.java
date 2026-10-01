@@ -35,10 +35,43 @@ public class IngredientRepository implements IIngredientRepository {
             );
 
             String ingredientName = cursor.getString(
-                    cursor.getColumnIndexOrThrow("Ingredient_name")
+                    cursor.getColumnIndexOrThrow("Ingredient_Name")
             );
 
             ingredient = new Ingredient(id, ingredientName);
+        }
+
+        cursor.close();
+
+        return ingredient;
+
+    }
+
+    // this method is used to find an ingredient by id.
+    // mainly coz we'd want to get the name of the pantry / recipe ingredient which can be done
+    // by getting the ingredient by its id (fk on pantry and recipe ingredient tables)
+    public Ingredient findIngredientById(int id){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT Ingredient_Id, Ingredient_Name " +
+                        "FROM Ingredient " +
+                        "WHERE Ingredient_Id = ?",
+                new String[]{String.valueOf(id)}
+        );
+
+        Ingredient ingredient = null;
+
+        if (cursor.moveToFirst()) {
+            int ingredientId = cursor.getInt(
+                    cursor.getColumnIndexOrThrow("Ingredient_Id")
+            );
+
+            String ingredientName = cursor.getString(
+                    cursor.getColumnIndexOrThrow("Ingredient_Name")
+            );
+
+            ingredient = new Ingredient(ingredientId, ingredientName);
         }
 
         cursor.close();

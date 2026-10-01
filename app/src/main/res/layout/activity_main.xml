@@ -29,7 +29,8 @@
             android:textAlignment="center"
             android:textColor="@color/empty_content_msg_text"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -38,6 +39,7 @@
             android:padding="10dp">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pantry_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="589dp" />
 
