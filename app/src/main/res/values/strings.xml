@@ -33,6 +33,15 @@
     <string name="pantry_ingredient_qty">200 g</string>
     <string name="edit_pantry_ingredient">Edit Pantry Ingredient</string>
     <string name="delete_pantry_ingredient">Delete Pantry Ingredient</string>
+    <string name="back_button">back</string>
+
+    <string name="ingredient_list">* Pasta - 250 g</string>
+    <string name="recipe_instruction">Boil the pasta for ...</string>
+
+    <string name="empty_pantry_text">
+        -Pantry Empty-
+        \nHint: Click The '+' Icon To Add Ingredient
+    </string>
 
     <string-array name="measurement_options">
         <item>Metric</item>

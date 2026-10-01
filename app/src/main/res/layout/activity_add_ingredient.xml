@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/add_ingredient_form"
     android:background="#F8F2E4"
@@ -72,6 +74,7 @@
             android:layout_width="162dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
+            android:background="@drawable/bg_spinner"
             android:textAlignment="center" />
 
         <TextView
@@ -102,6 +105,8 @@
                     android:id="@+id/cancel_add_ingredient_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/bg_cancel_button"
                     android:layout_weight="1"
                     android:text="@string/cancel_btn_text" />
             </LinearLayout>
@@ -115,8 +120,10 @@
 
                 <Button
                     android:id="@+id/confirm_add_ingredient_btn"
+                    app:backgroundTint="@null"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_confirm_button"
                     android:layout_weight="1"
                     android:text="@string/confirm_btn_text" />
             </LinearLayout>

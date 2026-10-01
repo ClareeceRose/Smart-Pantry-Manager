@@ -11,31 +11,28 @@
 
     <color name="error_message_text">#F7161A</color>
 
-    <color name="cancel_btn_background">#FDB0B0</color>
-    <color name="cancel_btn_border"> </color>
-    <color name="cancel_btn_text"> </color>
+    <color name="cancel_btn_background">#EF5959</color>
+    <color name="cancel_btn_border">#852625</color>
 
-    <color name="confirm_btn_background">#C5EEC9</color>
-    <color name="confirm_btn_border"> </color>
-    <color name="confirm_btn_text"> </color>
+    <color name="confirm_btn_background">#2ABC37</color>
+    <color name="confirm_btn_border">#27852D</color>
 
     <color name="main_card_background"> </color>
 
     <color name="recipe_card_background">#FEC8D3</color>
     <color name="ingredient_card_background">#E7CFE9</color>
 
-    <color name="add_ingredient_btn_background"> </color>
-    <color name="add_ingredient_btn_foreground"> </color>
+    <color name="add_ingredient_btn_tint">#F09696</color>
 
     <color name="edit_ingredient_btn_background">#9E175C</color>
 
     <color name="delete_ingredient_btn_background">#C01C27</color>
 
-    <color name="empty_content_msg_text"> </color>
+    <color name="empty_content_msg_text">#9F1A5E</color>
 
     <color name="spinner_icon"> </color>
-    <color name="spinner_background">#FCF0F4</color>
-    <color name="spinner_border">#703736</color>
+    <color name="spinner_background">#F8ADC5</color>
+    <color name="spinner_border">#9B5276</color>
 
     <color name="recipe_detail_heading"> </color>
     <color name="recipe_detail_subheading"> </color>

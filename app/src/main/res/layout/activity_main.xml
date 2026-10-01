@@ -5,42 +5,61 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F2E4"
-    android:orientation="vertical"
-    android:id="@+id/main" >
+    android:orientation="vertical">
 
     <include
         android:id="@+id/header"
-        layout="@layout/header_layout"/>
+        layout="@layout/header_layout" />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="10dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <TextView
+            android:id="@+id/empty_pantry_msg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="64dp"
+            android:padding="10dp"
+            android:text="@string/empty_pantry_text"
+            android:textAlignment="center"
+            android:textColor="@color/empty_content_msg_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_ingredient_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:clickable="true"
-            android:contentDescription="@string/addition_button"
-            android:focusable="true"
-            android:scaleType="center"
-            android:src="@android:drawable/ic_input_add"
-            android:translationX="-20dp"
-            android:translationY="-20dp"
-            app:rippleColor="#A06262" />
-    </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="589dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_ingredient_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom|end"
+                android:clickable="true"
+                android:contentDescription="@string/addition_button"
+                android:focusable="true"
+                android:scaleType="center"
+                android:src="@drawable/outline_add_24"
+                android:translationX="-20dp"
+                android:translationY="-20dp"
+                app:backgroundTint="@color/add_ingredient_btn_tint"
+                app:maxImageSize="30dp" />
+
+        </FrameLayout>
+    </LinearLayout>
 
     <include
         android:id="@+id/nav_bar"
-        layout="@layout/nav_bar"/>
+        layout="@layout/nav_bar" />
 </LinearLayout>
