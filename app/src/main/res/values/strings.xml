@@ -29,8 +29,10 @@
     <string name="recipe_instructions_heading">Instructions:</string>
     <string name="recipe_ingredient_count_label">6 Ingredients</string>
     <string name="recipe_name">Lasagna</string>
+
     <string name="pantry_ingredient_name">Tomato</string>
     <string name="pantry_ingredient_qty">200 g</string>
+
     <string name="edit_pantry_ingredient">Edit Pantry Ingredient</string>
     <string name="delete_pantry_ingredient">Delete Pantry Ingredient</string>
     <string name="back_button">back</string>
@@ -38,13 +40,14 @@
     <string name="empty_ingredient_error_msg">Empty Name Field - Please Enter Ingredient Name</string>
     <string name="empty_qty_error_msg">Empty Qty Field - Please Enter Valid Quantity</string>
     <string name="invalid_qty_error_msg">Invalid Qty - Must Be A Positive Number</string>
+    <string name="pantry_ingredient_already_exists_error_msg">This Ingredient Is Already In Your Pantry</string>
 
     <string name="ingredient_list">* Pasta - 250 g</string>
     <string name="recipe_instruction">Boil the pasta for ...</string>
 
     <string name="empty_pantry_text">
         -Pantry Empty-
-        \nHint: Click The '+' Icon To Add Ingredient
+        \nHint: Click The \'+\' Icon To Add Ingredient
     </string>
 
     <string-array name="measurement_options">

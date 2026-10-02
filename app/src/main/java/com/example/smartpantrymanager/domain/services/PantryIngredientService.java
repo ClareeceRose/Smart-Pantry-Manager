@@ -13,13 +13,19 @@ public class PantryIngredientService {
         this.pantryIngredientRepo = pantryIngredientRepo;
     }
 
+    // method for getting all pantry ingredients in the form of an array list
+    // I had initially wanted it stored in a hashset, but I'll stick to what I know best for now
     public ArrayList<PantryIngredient> getAllPantryIngredients(){
 
         pantryIngredients = pantryIngredientRepo.getAllPantryIngredients();
         return pantryIngredients;
 
     }
-    public void addPantryIngredient(PantryIngredient pantryIngredient){}
+
+    // method for adding a new pantry ingredient instance
+    public void addPantryIngredient(PantryIngredient pantryIngredient){
+        pantryIngredientRepo.addPantryIngredient(pantryIngredient);
+    }
     public void deletePantryIngredient(PantryIngredient pantryIngredient){}
     public void updatePantryIngredient(PantryIngredient pantryIngredient){}
 }

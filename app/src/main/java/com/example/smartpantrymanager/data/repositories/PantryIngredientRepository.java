@@ -1,5 +1,6 @@
 package com.example.smartpantrymanager.data.repositories;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.example.smartpantrymanager.core.enums.UnitType;
@@ -16,6 +17,7 @@ public class PantryIngredientRepository implements IPantryIngredientRepository {
         this.dbHelper = dbHelper;
     }
 
+    // method used to get all pantry ingredients
     public ArrayList<PantryIngredient> getAllPantryIngredients(){
 
         ArrayList<PantryIngredient> pantryIngredients = new ArrayList<>();
@@ -23,41 +25,61 @@ public class PantryIngredientRepository implements IPantryIngredientRepository {
 
         Cursor cursor = db.rawQuery(
                 "SELECT PI_Id, Ingredient_Id, PI_Qty, PI_Unit " +
-                        "FROM Pantry_Ingredient ",
+                        "FROM Pantry_Ingredient",
                 null
         );
 
-        PantryIngredient pantryIngredient = null;
-
         if (cursor.moveToFirst()) {
-            int piId = cursor.getInt(
-                    cursor.getColumnIndexOrThrow("PI_Id")
-            );
 
-            int ingredientId = cursor.getInt(
-                    cursor.getColumnIndexOrThrow("Ingredient_Id")
-            );
+            do {
 
-            int piQty = cursor.getInt(
-                    cursor.getColumnIndexOrThrow("PI_Qty")
-            );
+                int piId = cursor.getInt(cursor.getColumnIndexOrThrow("PI_Id"));
+                int ingredientId = cursor.getInt(cursor.getColumnIndexOrThrow("Ingredient_Id"));
+                double piQty = cursor.getDouble(cursor.getColumnIndexOrThrow("PI_Qty"));
+                String piUnitString = cursor.getString(cursor.getColumnIndexOrThrow("PI_Unit"));
+                UnitType piUnit = UnitType.valueOf(piUnitString);
+                PantryIngredient pantryIngredient =
+                        new PantryIngredient(
+                                piId,
+                                ingredientId,
+                                piQty,
+                                piUnit
+                        );
 
-            String piUnitString = cursor.getString(
-                    cursor.getColumnIndexOrThrow("PI_Unit")
-            );
+                pantryIngredients.add(pantryIngredient); // adds the pantry ingr to the arraylist
 
-            UnitType piUnit = UnitType.valueOf(piUnitString);
+            }
 
-            pantryIngredient = new PantryIngredient(piId, ingredientId, piQty, piUnit);
-            pantryIngredients.add(pantryIngredient);
+            while (cursor.moveToNext()); // moves to the next instance
         }
 
-        cursor.close();
+        cursor.close(); // closes the cursor
 
-        return pantryIngredients;
+        return pantryIngredients; // returns an array list of pantry ingredients
     }
 
-    public void addPantryIngredient(PantryIngredient pantryIngredient){}
+    // method used for adding a new pantry ingredient instance
+    public void addPantryIngredient(PantryIngredient pantryIngredient){
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put("Ingredient_Id", pantryIngredient.getIngredientId());
+        values.put("PI_Qty", pantryIngredient.getPantryIngredientQty());
+        values.put(
+                "PI_Unit",
+                pantryIngredient.getPantryIngredientUnit().name()
+        );
+
+        long generatedId = db.insert(
+                "Pantry_Ingredient",
+                null,
+                values
+        );
+
+        pantryIngredient.setPantryIngredientId((int) generatedId);
+    }
     public void deletePantryIngredient(PantryIngredient pantryIngredient){}
     public void updatePantryIngredient(PantryIngredient pantryIngredient){}
 }

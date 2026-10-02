@@ -29,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS Ingredient (" +
                 "Ingredient_Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "Ingredient_Name TEST NOT NULL UNIQUE)"
+                "Ingredient_Name TEXT NOT NULL UNIQUE)"
         );
 
         db.execSQL(
@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "CREATE TABLE IF NOT EXISTS Pantry_Ingredient (" +
                         "PI_Id INTEGER PRIMARY KEY, " +
                         "Ingredient_Id INTEGER REFERENCES Ingredient(Ingredient_Id) NOT NULL, " +
-                        "PI_Qty INTEGER NOT NULL, " +
+                        "PI_Qty REAL NOT NULL, " +
                         "PI_Unit TEXT NOT NULL)"
         );
 
@@ -52,7 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         "RI_Id INTEGER PRIMARY KEY, " +
                         "Recipe_Id INTEGER REFERENCES Recipe(Recipe_Id) NOT NULL, " +
                         "Ingredient_Id INTEGER REFERENCES Ingredient(Ingredient_Id) NOT NULL, " +
-                        "RI_Required_Qty INTEGER NOT NULL, " +
+                        "RI_Required_Qty REAL NOT NULL, " +
                         "RI_Unit TEXT NOT NULL)"
         );
 
@@ -92,6 +92,9 @@ public class DBHelper extends SQLiteOpenHelper {
                         "('spinach')," +
                         "('noodles')," +
                         "('soy sauce')," +
+                        "('berry')," +
+                        "('cheese')," +
+                        "('clove')," +
                         "('chicken')"
         );
 

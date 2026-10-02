@@ -9,6 +9,11 @@ public class Ingredient {
         this.ingredientName = ingredientName;
     }
 
+    // for creating a new Ingredient instance without id
+    public Ingredient(String ingredientName) {
+        this.ingredientName = ingredientName;
+    }
+
     public int getIngredientId() {
         return ingredientId;
     }

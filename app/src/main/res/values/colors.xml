@@ -17,10 +17,8 @@
     <color name="confirm_btn_background">#2ABC37</color>
     <color name="confirm_btn_border">#27852D</color>
 
-    <color name="main_card_background"> </color>
-
     <color name="recipe_card_background">#FEC8D3</color>
-    <color name="ingredient_card_background">#E7CFE9</color>
+    <color name="ingredient_card_background">#F4A8BF</color>
 
     <color name="add_ingredient_btn_tint">#F09696</color>
 
@@ -30,7 +28,6 @@
 
     <color name="empty_content_msg_text">#9F1A5E</color>
 
-    <color name="spinner_icon"> </color>
     <color name="spinner_background">#F8ADC5</color>
     <color name="spinner_border">#9B5276</color>
 

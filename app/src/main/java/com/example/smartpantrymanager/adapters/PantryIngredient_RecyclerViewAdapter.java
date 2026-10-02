@@ -1,6 +1,7 @@
 package com.example.smartpantrymanager.adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -19,7 +20,6 @@ public class PantryIngredient_RecyclerViewAdapter extends RecyclerView.Adapter<P
 
     private Context context;
     private ArrayList<PantryIngredient> pantryIngredients;
-
     private IngredientService ingredientService;
 
     public PantryIngredient_RecyclerViewAdapter(
@@ -35,8 +35,15 @@ public class PantryIngredient_RecyclerViewAdapter extends RecyclerView.Adapter<P
     @NonNull
     @Override
     public PantryIngredient_RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(context).inflate(R.layout.pantry_ingredient_recycler_view_row,
+                parent,
+                false
+        );
+
+        return new MyViewHolder(view);
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull PantryIngredient_RecyclerViewAdapter.MyViewHolder holder, int position) {
@@ -44,9 +51,13 @@ public class PantryIngredient_RecyclerViewAdapter extends RecyclerView.Adapter<P
         PantryIngredient pantryIngredient = pantryIngredients.get(position);
 
         // let us set the pantry ingredient name
+        // the ingredient name
         holder.ingredient.setText(
                 ingredientService.findIngredientById(pantryIngredient.getIngredientId())
-                        .getIngredientName().toLowerCase().trim());
+                        .getIngredientName().toLowerCase().trim()
+        );
+
+        // the qty and unit
         holder.ingredientQty.setText(pantryIngredient.getPantryIngredientQty() +
                 " " +
                 pantryIngredient.getPantryIngredientUnit());

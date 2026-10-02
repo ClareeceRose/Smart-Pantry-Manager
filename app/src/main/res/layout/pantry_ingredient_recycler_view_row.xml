@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/pi_recycler_view_row"
-        android:layout_width="388dp"
+        android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:background="@color/ingredient_card_background"
@@ -57,7 +57,7 @@
             <ImageButton
                 android:id="@+id/edit_ingredient_btn"
                 android:layout_width="5dp"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
@@ -68,7 +68,7 @@
             <ImageButton
                 android:id="@+id/delete_ingredient_btn"
                 android:layout_width="5dp"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"

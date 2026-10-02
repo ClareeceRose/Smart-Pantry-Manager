@@ -8,7 +8,8 @@ import com.example.smartpantrymanager.domain.interfaces.IIngredientRepository;
 import com.example.smartpantrymanager.domain.models.Ingredient;
 
 // okay, so this file's responsibilities are simple
-// it needs to be able to find an Ingredient and add a new one if it does not exist in the Ingredients table
+// it needs to be able to find an Ingredient (by name or id)
+// and add a new one if it does not exist in the Ingredients table
 public class IngredientRepository implements IIngredientRepository {
     private DBHelper dbHelper;
 
@@ -30,14 +31,8 @@ public class IngredientRepository implements IIngredientRepository {
         Ingredient ingredient = null;
 
         if (cursor.moveToFirst()) {
-            int id = cursor.getInt(
-                    cursor.getColumnIndexOrThrow("Ingredient_Id")
-            );
-
-            String ingredientName = cursor.getString(
-                    cursor.getColumnIndexOrThrow("Ingredient_Name")
-            );
-
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow("Ingredient_Id"));
+            String ingredientName = cursor.getString(cursor.getColumnIndexOrThrow("Ingredient_Name"));
             ingredient = new Ingredient(id, ingredientName);
         }
 
@@ -63,30 +58,29 @@ public class IngredientRepository implements IIngredientRepository {
         Ingredient ingredient = null;
 
         if (cursor.moveToFirst()) {
-            int ingredientId = cursor.getInt(
-                    cursor.getColumnIndexOrThrow("Ingredient_Id")
-            );
 
-            String ingredientName = cursor.getString(
-                    cursor.getColumnIndexOrThrow("Ingredient_Name")
-            );
+            int ingredientId = cursor.getInt(cursor.getColumnIndexOrThrow("Ingredient_Id"));
+            String ingredientName = cursor.getString(cursor.getColumnIndexOrThrow("Ingredient_Name"));
 
+            // creates a new ingredient instance
             ingredient = new Ingredient(ingredientId, ingredientName);
+
         }
 
-        cursor.close();
+        cursor.close(); // closes cursor
 
-        return ingredient;
+        return ingredient; // returns the ingredient found (or null if not)
 
     }
 
     // method is used to add a new ingredient if it doesn't exist in the Ingredient table first
-    public void addIngredient(Ingredient ingredient){
+    public int addIngredient(Ingredient ingredient){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put("Ingredient_Name", ingredient.getIngredientName());
-        db.insert("Ingredient", null, values);
+        long generatedId = db.insert("Ingredient", null, values);
+        return (int)generatedId;
     }
 
 }

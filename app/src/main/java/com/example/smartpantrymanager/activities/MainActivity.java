@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartpantrymanager.R;
 import com.example.smartpantrymanager.adapters.PantryIngredient_RecyclerViewAdapter;
-import com.example.smartpantrymanager.core.enums.UnitType;
 import com.example.smartpantrymanager.data.connection.DBHelper;
 import com.example.smartpantrymanager.data.repositories.IngredientRepository;
 import com.example.smartpantrymanager.data.repositories.PantryIngredientRepository;
@@ -67,9 +66,6 @@ public class MainActivity extends AppCompatActivity {
         pantryRecyclerView = findViewById(R.id.pantry_recycler_view);
         pantryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // and load all pantry ingredients
-        loadAllPantryIngredients();
-
         // allows the user to move to the suggested recipes screen using the tab
         LinearLayout recipesTab = (LinearLayout) findViewById(R.id.recipe_tab);
         recipesTab.setOnClickListener(new View.OnClickListener() {
@@ -102,10 +98,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // for loading all pantry ingredients
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadAllPantryIngredients();
+    }
+
     // this needs to be loaded as soon as the user enters app or clicks to view pantry.
     // it must also be refreshed when a new ingredient is added to the pantry
     public void loadAllPantryIngredients(){
-        TextView emptyIngredientMsg = findViewById(R.id.edit_ingredient_error_msg);
+        TextView emptyIngredientMsg = findViewById(R.id.empty_pantry_msg);
         pantryIngredients = pantryIngredientService.getAllPantryIngredients();
 
         if (pantryIngredients.isEmpty()){

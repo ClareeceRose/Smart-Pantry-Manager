@@ -5,16 +5,27 @@ import com.example.smartpantrymanager.core.enums.UnitType;
 public class PantryIngredient {
     private int pantryIngredientId;
     private int ingredientId;
-    private int pantryIngredientQty;
+    private double pantryIngredientQty;
     private UnitType pantryIngredientUnit;
 
     public PantryIngredient(
             int pantryIngredientId,
             int ingredientId,
-            int pantryIngredientQty,
+            double pantryIngredientQty,
             UnitType pantryIngredientUnit
     ) {
         this.pantryIngredientId = pantryIngredientId;
+        this.ingredientId = ingredientId;
+        this.pantryIngredientQty = pantryIngredientQty;
+        this.pantryIngredientUnit = pantryIngredientUnit;
+    }
+
+    // for creating a new pantry ingredient without the pantry ingredient id
+    public PantryIngredient(
+            int ingredientId,
+            double pantryIngredientQty,
+            UnitType pantryIngredientUnit
+    ) {
         this.ingredientId = ingredientId;
         this.pantryIngredientQty = pantryIngredientQty;
         this.pantryIngredientUnit = pantryIngredientUnit;
@@ -36,11 +47,11 @@ public class PantryIngredient {
         this.ingredientId = ingredientId;
     }
 
-    public int getPantryIngredientQty() {
+    public double getPantryIngredientQty() {
         return pantryIngredientQty;
     }
 
-    public void setPantryIngredientQty(int pantryIngredientQty) {
+    public void setPantryIngredientQty(double pantryIngredientQty) {
         this.pantryIngredientQty = pantryIngredientQty;
     }
 
