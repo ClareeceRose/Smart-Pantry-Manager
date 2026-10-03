@@ -7,12 +7,12 @@ public class RecipeIngredient {
     private int recipeIngredientId;
     private int ingredientId;
     private int recipeId;
-    private int recipeIngredientRequiredQty;
+    private double recipeIngredientRequiredQty;
     private UnitType recipeIngredientUnit;
 
     public RecipeIngredient(
             UnitType recipeIngredientUnit,
-            int recipeIngredientRequiredQty,
+            double recipeIngredientRequiredQty,
             int recipeId,
             int ingredientId,
             int recipeIngredientId
@@ -48,11 +48,11 @@ public class RecipeIngredient {
         this.recipeId = recipeId;
     }
 
-    public int getRecipeIngredientRequiredQty() {
+    public double getRecipeIngredientRequiredQty() {
         return recipeIngredientRequiredQty;
     }
 
-    public void setRecipeIngredientRequiredQty(int recipeIngredientRequiredQty) {
+    public void setRecipeIngredientRequiredQty(double recipeIngredientRequiredQty) {
         this.recipeIngredientRequiredQty = recipeIngredientRequiredQty;
     }
 
