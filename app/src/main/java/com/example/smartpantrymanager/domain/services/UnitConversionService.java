@@ -1,10 +1,12 @@
 package com.example.smartpantrymanager.domain.services;
 
+import com.example.smartpantrymanager.core.enums.UnitType;
+
 // this file is where unit conversions will take place
 public class UnitConversionService {
     // l <---> ml conversion
     public double convertLiterToMilliliter(double liter){
-        double ml = liter / 1000;
+        double ml = liter * 1000;
         return ml;
     }
 
@@ -66,5 +68,65 @@ public class UnitConversionService {
     public double convertTablespoonToTeaspoon(double tbsp){
         double tsp = tbsp * 3;
         return tsp;
+    }
+
+    // since I'd like to compare base units, I'd need methods to act as middle men for conversion.
+    // the base units are namely grams, ml, and teaspoons
+
+    // converts units to grams
+    public double convertToGrams(double quantity, UnitType unit) {
+
+        switch (unit){
+
+            case GRAM:
+                return quantity;
+
+            case KILOGRAM:
+                return convertKilogramToGram(quantity);
+
+            case OUNCE:
+                return convertOunceToGram(quantity);
+
+            case POUND:
+                return convertPoundToGram(quantity);
+
+            default:
+                return -1;
+
+        }
+    }
+
+    // converts units to ml
+    public double convertToMilliliters(double quantity, UnitType unit) {
+
+        switch (unit) {
+            case MILLILITER:
+                return quantity;
+
+            case LITER:
+                return convertLiterToMilliliter(quantity);
+
+            case FLUID_OUNCE:
+                return convertFluidOunceToMilliliter(quantity);
+
+            default:
+                return -1;
+
+        }
+    }
+
+    // converts units tsp
+    public double convertToTeaspoons(double quantity, UnitType unit) {
+
+        switch (unit) {
+            case TEASPOON:
+                return quantity;
+
+            case TABLESPOON:
+                return convertTablespoonToTeaspoon(quantity);
+
+            default:
+                return -1;
+        }
     }
 }
