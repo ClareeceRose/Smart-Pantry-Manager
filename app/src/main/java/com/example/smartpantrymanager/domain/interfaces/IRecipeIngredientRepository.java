@@ -2,8 +2,8 @@ package com.example.smartpantrymanager.domain.interfaces;
 
 import com.example.smartpantrymanager.domain.models.RecipeIngredient;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public interface IRecipeIngredientRepository {
-    HashSet<RecipeIngredient> getAllRecipeIngredients();
+    ArrayList<RecipeIngredient> getAllRecipeIngredients();
 }

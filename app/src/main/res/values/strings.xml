@@ -50,6 +50,11 @@
         \nHint: Click The \'+\' Icon To Add Ingredient
     </string>
 
+    <string name="empty_suggested_recipe_text">
+        -No Recipes Match Your Pantry Yet-
+        \nHint: Add More Ingredients
+    </string>
+
     <string-array name="measurement_options">
         <item>Metric</item>
         <item>Imperial</item>

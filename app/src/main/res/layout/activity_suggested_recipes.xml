@@ -21,9 +21,14 @@
 
         <TextView
             android:id="@+id/empty_recipe_screen_msg"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="@color/empty_content_msg_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textStyle="bold"
+            android:text="@string/empty_suggested_recipe_text" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recipes_recycler_view"
