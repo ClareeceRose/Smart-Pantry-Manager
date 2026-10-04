@@ -37,6 +37,9 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
         TextView headerTitle = findViewById(R.id.header_title);
         headerTitle.setText(R.string.settings);
 
+        LinearLayout settingsTab = findViewById(R.id.settings_tab);
+        settingsTab.setBackgroundResource(R.color.selected_tab_background);
+
         // creating a spinner for measurement types
         Spinner measurementsSpinner = (Spinner) findViewById(R.id.measurement_spinner);
         // this creates an ArrayAdapter using the defined string array

@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         TextView headerTitle = findViewById(R.id.header_title);
         headerTitle.setText(R.string.my_pantry);
 
+        // here is what changes the tab color when this activity is selected
+        LinearLayout pantryTab = findViewById(R.id.pantry_tab);
+        pantryTab.setBackgroundResource(R.color.selected_tab_background);
+
         // now the recycler view
         pantryRecyclerView = findViewById(R.id.pantry_recycler_view);
         pantryRecyclerView.setLayoutManager(new LinearLayoutManager(this));

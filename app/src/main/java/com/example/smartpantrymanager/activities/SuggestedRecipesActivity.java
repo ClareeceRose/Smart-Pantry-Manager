@@ -112,6 +112,10 @@ public class SuggestedRecipesActivity extends AppCompatActivity {
         TextView headerTitle = findViewById(R.id.header_title);
         headerTitle.setText(R.string.recipes);
 
+        // changes color of recipes tab when on this activity
+        LinearLayout recipeTab = findViewById(R.id.recipe_tab);
+        recipeTab.setBackgroundResource(R.color.selected_tab_background);
+
         LinearLayout pantryTab = (LinearLayout) findViewById(R.id.pantry_tab);
         pantryTab.setOnClickListener(new View.OnClickListener() {
             @Override
