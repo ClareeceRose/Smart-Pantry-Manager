@@ -88,6 +88,19 @@ public class PantryIngredientRepository implements IPantryIngredientRepository {
         pantryIngredient.setPantryIngredientId((int) generatedId);
 
     }
-    public void deletePantryIngredient(PantryIngredient pantryIngredient){}
+    // this method will be used to delete a specific ingredient
+    public void deletePantryIngredient(PantryIngredient pantryIngredient) {
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        db.delete(
+                "Pantry_Ingredient",
+                "PI_Id = ?",
+                new String[]{
+                        String.valueOf(pantryIngredient.getPantryIngredientId())
+                }
+        );
+    }
+
     public void updatePantryIngredient(PantryIngredient pantryIngredient){}
 }
