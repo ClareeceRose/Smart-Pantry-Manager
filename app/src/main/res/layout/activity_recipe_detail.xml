@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textColor="@color/recipe_detail_heading"
             android:text="@string/recipe_heading"
             android:textAlignment="center"
             android:textSize="24sp" />
@@ -42,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textColor="@color/recipe_detail_subheading"
             android:text="@string/ingredients_heading"
             android:textSize="20sp" />
 
@@ -50,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="165dp"
             android:layout_marginTop="5dp"
+            android:textColor="@color/body_text"
             android:text="@string/ingredient_list"
             android:textSize="16sp" />
 
@@ -58,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textColor="@color/recipe_detail_subheading"
             android:text="@string/recipe_instructions_heading"
             android:textSize="20sp" />
 
@@ -65,6 +69,7 @@
             android:id="@+id/recipe_instructions"
             android:layout_width="match_parent"
             android:layout_height="130dp"
+            android:textColor="@color/body_text"
             android:layout_marginTop="5dp"
             android:text="@string/recipe_instruction"
             android:textSize="16sp" />
