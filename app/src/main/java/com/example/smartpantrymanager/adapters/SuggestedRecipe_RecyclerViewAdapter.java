@@ -1,6 +1,7 @@
 package com.example.smartpantrymanager.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartpantrymanager.R;
+import com.example.smartpantrymanager.activities.RecipeDetailActivity;
 import com.example.smartpantrymanager.domain.models.Recipe;
 import com.example.smartpantrymanager.domain.models.RecipeIngredient;
 
@@ -80,8 +82,25 @@ public class SuggestedRecipe_RecyclerViewAdapter
             }
         }
 
-        // displays the number of required ingredients.
+        // this displays the number of required ingredients.
         holder.ingredientCount.setText(ingredientCount + " ingredients");
+
+        // while this opens the recipe detail screen when the arrow is clicked.
+        holder.recipeArrow.setOnClickListener(v -> {
+
+            Intent intent = new Intent(
+                    context,
+                    RecipeDetailActivity.class
+            );
+
+            // here, the ID of the selected recipe is sent to the detail screen.
+            intent.putExtra(
+                    "recipe_id",
+                    recipe.getRecipeId()
+            );
+
+            context.startActivity(intent);
+        });
     }
 
     @Override

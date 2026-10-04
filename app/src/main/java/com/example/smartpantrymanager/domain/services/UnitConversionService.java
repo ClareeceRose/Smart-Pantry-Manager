@@ -3,6 +3,8 @@ package com.example.smartpantrymanager.domain.services;
 import com.example.smartpantrymanager.core.enums.UnitType;
 
 // this file is where unit conversions will take place
+// some of these are unused, but I'm going to keep then in case
+// I'd need to use them for later features.
 public class UnitConversionService {
     // l <---> ml conversion
     public double convertLiterToMilliliter(double liter){
