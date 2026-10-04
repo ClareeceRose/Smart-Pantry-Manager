@@ -30,5 +30,8 @@ public class PantryIngredientService {
     public void deletePantryIngredient(PantryIngredient pantryIngredient){
         pantryIngredientRepo.deletePantryIngredient(pantryIngredient);
     }
-    public void updatePantryIngredient(PantryIngredient pantryIngredient){}
+    // method for updating a pantry ingr
+    public void updatePantryIngredient(PantryIngredient pantryIngredient){
+        pantryIngredientRepo.updatePantryIngredient(pantryIngredient);
+    }
 }

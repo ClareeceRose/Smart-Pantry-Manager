@@ -32,7 +32,6 @@ public class AddIngredientActivity extends AppCompatActivity implements AdapterV
     private IngredientService ingredientService;
     private IngredientRepository ingredientRepo;
     private DBHelper dbHelper;
-    private String pantryIngredientName;
     TextView addIngredientErrorMsg;
 
     @Override

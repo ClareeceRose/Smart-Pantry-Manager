@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/edit_ingredient_form"
     android:background="#F8F2E4"
@@ -28,14 +30,14 @@
             android:text="@string/ingredient_name_label"
             android:textSize="20sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/edit_ingredient_name"
             android:layout_width="match_parent"
             android:textColor="@color/body_text"
+            android:textSize="16sp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:ems="10"
-            android:inputType="text"
             android:text="@string/sample_ingredient" />
 
         <TextView
@@ -71,6 +73,7 @@
             android:layout_width="162dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
+            android:background="@drawable/bg_spinner"
             android:textAlignment="center" />
 
         <TextView
@@ -82,7 +85,7 @@
             android:textColor="@color/error_message_text"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -101,6 +104,8 @@
                     android:id="@+id/cancel_edit_ingredient_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/bg_cancel_button"
                     android:layout_weight="1"
                     android:text="@string/cancel_btn_text" />
             </LinearLayout>
@@ -115,6 +120,8 @@
                 <Button
                     android:id="@+id/confirm_edit_ingredient_btn"
                     android:layout_width="match_parent"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/bg_confirm_button"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/confirm_btn_text" />
