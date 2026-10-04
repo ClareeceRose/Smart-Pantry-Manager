@@ -122,7 +122,12 @@ public class MainActivity extends AppCompatActivity {
         emptyIngredientMsg.setVisibility(View.GONE);
         pantryRecyclerView.setVisibility(View.VISIBLE);
 
-        pantryAdapter = new PantryIngredient_RecyclerViewAdapter(this, pantryIngredients, ingredientService);
+        pantryAdapter = new PantryIngredient_RecyclerViewAdapter(
+                this,
+                pantryIngredients,
+                ingredientService,
+                pantryIngredientService
+        );
 
         pantryRecyclerView.setAdapter(pantryAdapter);
 
