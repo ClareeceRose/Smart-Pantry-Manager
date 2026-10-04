@@ -1,68 +1,185 @@
-Title: Smart Pantry Manager
-Author: Clareece Rose Hoosen
+# Smart Pantry Manager
 
+**Author:** Clareece Rose Hoosen
 
-Introduction:
-The Smart Pantry Manager is a mobile application used to suggest recipes 
+## Introduction:
+
+The Smart Pantry Manager is an Android mobile application used to suggest recipes 
 to users based strictly on leftover ingredients to cut food waste.
 
-How it would work is by having the user add whatever ingredients is currently
-in their pantry, and from there they can search for recipes based on what 
-they have available. Ingredients will be tracked and have their quantities 
-adjusted once they've already been used in a recipe.
+How it would work is, users can add ingredients to their pantry and record their quantities. 
+The application then compares pantry contents with ingredients and quantities 
+required by stored recipes.
 
-The user will not be required to go on a shopping trip, nor will a 
-recipe be suggested unless the user actually has everything they need for 
-a particular recipe.
+A recipe is only suggested when the user has all required ingredients and sufficient quantities. 
+It's a strict matching rule that prevents recipes that need the user to go shopping, from being 
+suggested.
 
-The Smart Pantry Manager enforces a strict-matching rule, which is the most 
-important piece of business logic of the app.
-
-
-The Plural Ingredient Business Logic:
-There are many issues that could come about when deciding the approach to ensure that 
-the system takes into account the real-world messiness of ingredient matching.
-
-1) At first, I wanted to use a basic substring methodology where the system would 
-compare strings after they have been normalized to a certain degree. For example:
-if a user typed in "tomatoes" then the system could be designed to remove the
-"es" from it to form a singular word "tomato", making it much easier to track 
-and compare it with the available ingredients for each recipe. But, what if the user 
-were to type "cheeses" which would then be normalized to "chees"? Such a simple approach 
-could lead to frustrated users.
-
-2) So, why not match this badly normalized word to the recipe ingredients stored in the 
-database then have them stored and displayed for the user as such? Because, imagine this 
-"chees" is compared with "cheeseburger" using a .contains() method, and is stored as such, 
-making the user get recipes such as "cheeseburger casserole". Not convinced? What of 
-"pepper" being stored and match with recipes that require "peppermint"?
-
-3) Okay, so since this requires stricter logic, the system could extract the string name 
-of the ingredient the user enters, trim it, convert it to lowercase, then immediately compare it 
-to the stored recipe ingredients in the db. Instead of using .contains() we could use .equals() 
-which is much stricter in terms of matching (avoiding the "pepper" and "peppermint" problem).
-And if no ingredient matches, then we can normalize. But not immediately by removing "es" from 
-words like "cheese" or "tomatoes". I believe this should be done iteratively, where we'd remove 
-the last letter "s" and then attempt to match it with the database ingredient once more, 
-which matches "cheeses" with "cheese" | "chocolates" with "chocolate".
-If that doesn't work then it can remove the second last letter as well "es", matching "tomatoes" with 
-"tomato". We'd stop it there (unless I find another structure of plural words that needs normalizing), 
-but we also need to ensure that plurals like "berries" have "ies" converted to "y".
+The app also allows users to delete and delete the pantry ingredients, view suggested recipes, 
+view selected recipe details, and configure their preferred measurement system.
 
 
-The Quantity Comparison Business Logic:
+## The Plural Ingredient Business Logic:
+The ingredient matching accounts for both singular and plural forms.
+It works like this: The entered pantry ingredient given by the user via the 
+form (Add Ingredient screen) is trimmed, converted to lowercase, and has it's name compared 
+with the names of the stored ingredients in the Ingredient table. Every entered ingredient 
+is given an initial comparison before being normalized and compared again.
+
+If a match is found, then a new pantry ingredient instance is created with a given 
+Ingredient_Id. All pantry ingredients are then stored during the app's run in an ArrayList 
+for display and further matching to take place.
+
+If no match is found, then that ingredient name is normalized with the use of substrings and 
+compared with the stored ingredient after each normalization process to find a match. For
+example: 
+
+    "tomatoes" -> "tomato" ("es" removal and comparison)
+    "berries" -> "berry" ("ies" replaced with "y")
+    "chocolates" -> "chocolate" ("s" removal)
+
+After checking if the entered ingredient ends with either "ies", "es", or "s", 
+the names are manipulated and compared with the ingredient name, and if no record exists, then a 
+new instance is created, being stored as its existing form, and then added to the Pantry_Ingredient 
+table and added to the ArrayList of pantry ingredients.
+
+## The Quantity Comparison Business Logic:
+Once the pantry ingredients exist, they are then compared with recipe ingredients. The process is not as 
+simple. Each recipe has recipe ingredients that needs to be compared against the user's pantry, 
+checking if they have EVERY ingredient needed for the recipe, AND if they have greater than or an 
+equal amount of ingredient quantity. And, of course, if they quantities need to be compared, then 
+they must be converted to a common base form first.
+
+For example, if we simply did:
+    
+    Recipe Requires: flour - 1 kg
+    but 
+    Pantry contains: flour - 500 g
+
+The recipe is not suggested.
+
+This is when compatible units need to be converted to a common base 
+before comparing them.
+
+This application uses:
+- grams as a base unit for mass
+- ml as a base unit for volume
+- and teaspoons as a base unit for tsp/tbsp measurements
+
+Incompatible measurement types are not treated as equivalent.
+
+So, so summarize:
+The first comparison is Pantry ingredients entered are compared with Recipe ingredients for each recipe, using 
+their Ingredient_Id attributes. The second comparison is having quantities compared, those that are of different 
+units will be converted to a common base form and compared. If every recipe ingredient is in the user's pantry with 
+sufficient amounts, then that recipe is added to the Suggested Recipe screen, stored in an arraylist 
+temporarily. The user can then click the arrow on that recipe card and view more details, such as the
+recipe ingredients needed and instructions to make it.
+
+## Main Features:
+- Add pantry ingredients with quantities and measurement units
+- View all stored pantry ingredients
+- Edit pantry ingredient quantities and units
+- Delete pantry ingredients with confirmation
+- Store pantry data persistently using SQLite
+- Suggest recipes using strict ingredient and quantity matching
+- Handle compatible measurement-unit conversions
+- Account for common singular plural ingredient forms
+- View recipe ingredients and preparation instructions
+- Navigate between the Pantry, Suggested Recipes, and Settings screens
+- Select between metric and imperial measurement options
 
 
-Overall Matching Business Logic:
+## The Database Structure:
+This application uses SQLite as its local database.
+It consists of four main tables.
 
+**Ingredient Table:**
+This table stores the unique ingredients used by the application.
 
-Screens:
-1) Pantry Screen
+Ingredient_Id, 
+Ingredient_Name
 
-2) Suggested Recipe Screen
+**Pantry Ingredient Table:**
+Stores the ingredients currently available in the user's pantry.
 
-3) Settings Screen
+PI_Id, 
+Ingredient_Id, 
+PI_Qty, 
+PI_Unit
 
-4) Adding + Editing Ingredient Screen
+**Recipe Table:**
+This stores the recipes available in the app.
 
-5) Recipe Detail Screen
+Recipe_Id, 
+Recipe_Name, 
+Recipe_Instructions
+
+**Recipe Ingredient Table:**
+Stores the ingredients and quantities required for each recipe.
+
+RI_Id, 
+Recipe_Id, 
+Ingredient_Id, 
+RI_Required_Qty, 
+RI_Unit
+
+These relations allow recipe and pantry ingredients to refer to the same 
+ingredient records through Ingredient_Id.
+
+The db acts as the application's permanent source of data, while Java objects 
+and ArrayLists are used as temporary representations of that data while the application
+is running.
+
+## Application Architecture:
+The Smart Pantry Manager was designed to separate responsibilities between different layers:
+**Activities -> Services -> Repositories -> SQLite DB**
+
+Where activities are responsible for interacting with the UI, utilizing necessary 
+services. The service layer contains application-level operations and business logic.
+Repositories are responsible for communciating with the SQLite DB and performing various
+CRUD operations.
+
+The data retrived from SQLite is converted into Java model objects and stored in ArrayLists,
+for when it needs to be processed or displayed.
+
+The recipe-matching process used these Java objects to determine which recipes qualify to be 
+suggested to the user.
+
+## Screens:
+
+**1) Pantry Screen**
+This screen as MainActivity, is used to display ingredients that are currently
+in the user's pantry. Users are able to add new ingredients, edit existing quantities
+and units, or even delete specific ingredients.
+
+**2) Suggested Recipe Screen**
+This screen displays recipes that can be prepared using the current contents of the user's 
+pantry. Recipes are only suggested if every recipe ingredient strictly matches pantry 
+ingredients in terms of name and quantity.
+
+**3) Settings Screen**
+The settings screen allows users to configure the application's measurement preferences, which 
+can be in either Imperial or Metric.
+
+**4) Add/Edit Ingredient Screens**
+These are 2 separate screens, given similar styles and rules. Users can use these screens to add 
+new pantry ingredients or edit existing ones by quantity and unit type.
+
+**5) Recipe Detail Screen**
+This screen displays the selected recipe's required ingredients, quantities, measurement units, 
+and their preparation instructions.
+
+## Technologies Used:
+- Java
+- Android Studio
+- Android SDK
+- SQLite
+- XML
+- RecyclerView
+- Git/GitHub
+
+## Purpose:
+The main purpose of Smart Pantry Manager is to provide a practical way for users to 
+make better use of ingredients they already have available in their pantry. It reduces unnecessary 
+food wastage and helps them avoid recipes that require additional shopping trips.
