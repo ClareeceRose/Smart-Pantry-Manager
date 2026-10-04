@@ -2,6 +2,7 @@ package com.example.smartpantrymanager.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartpantrymanager.R;
+import com.example.smartpantrymanager.activities.EditIngredientActivity;
 import com.example.smartpantrymanager.domain.models.PantryIngredient;
 import com.example.smartpantrymanager.domain.services.IngredientService;
 import com.example.smartpantrymanager.domain.services.PantryIngredientService;
@@ -66,8 +68,21 @@ public class PantryIngredient_RecyclerViewAdapter extends RecyclerView.Adapter<P
                 " " +
                 pantryIngredient.getPantryIngredientUnit());
 
-        // the edit button // coming soon... with next commit
-        holder.editIngredientButton.setOnClickListener(v -> {});
+        // the edit button
+        holder.editIngredientButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(
+                    context,
+                    EditIngredientActivity.class
+            );
+
+            intent.putExtra(
+                    "pantry_ingredient_id",
+                    pantryIngredient.getPantryIngredientId()
+            );
+
+            context.startActivity(intent);
+        });
 
         // the delete button
         holder.deleteIngredientButton.setOnClickListener(v -> {
