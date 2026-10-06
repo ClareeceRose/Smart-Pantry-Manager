@@ -15,9 +15,34 @@ A recipe is only suggested when the user has all required ingredients and suffic
 It's a strict matching rule that prevents recipes that need the user to go shopping, from being 
 suggested.
 
-The app also allows users to delete and delete the pantry ingredients, view suggested recipes, 
-view selected recipe details, and configure their preferred measurement system.
+The app also allows users to add, edit and delete the pantry ingredients, view suggested recipes, 
+their details, and set a preferred measurement system.
 
+## Setup And Running The Application
+
+### Requirements:
+Before you run the Smart Pantry Manager, please ensure that the following are installed:
+
+- Android Studio
+- Android SDK
+- A compatible Java/JDK version
+- An Android device or Android emulator
+
+### Setup:
+1) You first need to clone or download the Smart Pantry Manager repository from GitHub.
+2) Open the project in Android Studio.
+3) Then allow Android Studio to sync the Gradle files and download any required dependencies.
+4) Connect an android device with USB debugging enabled, or start an Android emulator.
+5) Build the project in Android Studio to ensure that the app compiles successfully.
+6) Now run the application on the connected device or emulator.
+
+### Running The Application:
+After you launch the application, you'll be presented with the Pantry screen. From there, you can:
+1. Add new pantry ingredients and their quantities.
+2. Edit or delete existing pantry ingredients.
+3. Navigate to Suggested Recipes to view recipes that can be prepared using the available pantry ingredients.
+4. Select a recipe to view its required ingredients and preparation instructions.
+5. Open Settings to change the preferred measurement system between Metric and Imperial.
 
 ## The Plural Ingredient Business Logic:
 The ingredient matching accounts for both singular and plural forms.
@@ -27,8 +52,8 @@ with the names of the stored ingredients in the Ingredient table. Every entered 
 is given an initial comparison before being normalized and compared again.
 
 If a match is found, then a new pantry ingredient instance is created with a given 
-Ingredient_Id. All pantry ingredients are then stored during the app's run in an ArrayList 
-for display and further matching to take place.
+Ingredient_Id. The pantry ingredients are stored in the SQLite database for persistence and loaded 
+into an ArrayList when they are required for display and recipe matching.
 
 If no match is found, then that ingredient name is normalized with the use of substrings and 
 compared with the stored ingredient after each normalization process to find a match. For
@@ -89,9 +114,19 @@ recipe ingredients needed and instructions to make it.
 - Navigate between the Pantry, Suggested Recipes, and Settings screens
 - Select between metric and imperial measurement options
 
+## The Database Choice:
+I had chosen SQLite as the database for the Smart Pantry Manager because:
+1) The application does not require an internet connection or a remote server to perform any of the 
+key functions.
+2) Android Studio supports SQLite with the use of SQLiteOpenHelper (which is DBHelper in my project).
+3) It provides data persistence, where SQLite stores the tables of data permanently on the device even 
+an Activity closes.
+4) Lastly, it's really lightweight, making it the ideal choice for the application considering the amount 
+of data we need to store. Maybe in the future I'd swap with another database if the app needed to 
+store more recipes and ingredients.
 
 ## The Database Structure:
-This application uses SQLite as its local database.
+This application uses SQLite as its local database. 
 It consists of four main tables.
 
 **Ingredient Table:**
