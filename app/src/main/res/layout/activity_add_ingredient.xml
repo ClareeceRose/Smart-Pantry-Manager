@@ -39,7 +39,7 @@
             android:textColor="@color/body_text"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/sample_ingredient" />
+            android:hint="@string/sample_ingredient" />
 
         <TextView
             android:id="@+id/textView7"
@@ -57,7 +57,7 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:textColor="@color/body_text"
-            android:text="@string/sample_qty"
+            android:hint="@string/sample_qty"
             android:inputType="numberDecimal" />
 
         <TextView
